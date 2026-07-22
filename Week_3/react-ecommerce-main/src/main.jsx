@@ -5,6 +5,7 @@ import Home from "./component/pages/Home";
 import About from "./component/pages/About";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { mainRoute } from "./route/mainRoute";
+import PageNotFound from "./component/pages/PageNotFound";
 import MainLayout from "./layout/MainLayout";
 
 createRoot(document.getElementById("root")).render(
@@ -16,7 +17,8 @@ createRoot(document.getElementById("root")).render(
             <Route path={ele.path} element={<ele.component />} />
           ))}
         </Route>
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
-    </BrowserRouter>
+    </BrowserRouter >
   </>,
 );

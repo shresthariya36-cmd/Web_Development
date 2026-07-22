@@ -1,94 +1,91 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Search, Heart, ShoppingCart, User, Menu } from "lucide-react";
 
 export default function Header() {
   return (
-    <nav className="bg-neutral-primary fixed w-full z-20 top-0 start-0 border-b border-default">
-      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <a
-          href="https://flowbite.com/"
-          className="flex items-center space-x-3 rtl:space-x-reverse"
-        >
-          <img
-            src="https://flowbite.com/docs/images/logo.svg"
-            className="h-7"
-            alt="Flowbite Logo"
-          />
-          <span className="self-center text-xl text-heading font-semibold whitespace-nowrap">
-            Flowbite
-          </span>
-        </a>
-        <button
-          data-collapse-toggle="navbar-default"
-          type="button"
-          className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-body rounded-base md:hidden hover:bg-neutral-secondary-soft hover:text-heading focus:outline-none focus:ring-2 focus:ring-neutral-tertiary"
-          aria-controls="navbar-default"
-          aria-expanded="false"
-        >
-          <span className="sr-only">Open main menu</span>
-          <svg
-            className="w-6 h-6"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            width={24}
-            height={24}
-            fill="none"
-            viewBox="0 0 24 24"
+    <header className="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-200 shadow-sm">
+      <div className="max-w-7xl mx-auto">
+        {/* Top Header */}
+        <div className="h-16 flex items-center justify-between gap-6 px-5">
+          {/* Logo */}
+          <Link
+            to="/"
+            className="text-2xl font-bold text-gray-900 tracking-tight"
           >
-            <path
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeWidth={2}
-              d="M5 7h14M5 12h14M5 17h14"
-            />
-          </svg>
-        </button>
-        <div className="hidden w-full md:block md:w-auto" id="navbar-default">
-          <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-default rounded-base bg-neutral-secondary-soft md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-neutral-primary">
-            <li>
-              <Link
-                to={""}
-                className="block py-2 px-3 text-black bg-brand rounded md:bg-transparent md:text-fg-brand md:p-0"
-                aria-current="page"
-              >
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link
-                to={"/about"}
-                className="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent"
-              >
-                About
-              </Link>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent"
-              >
-                Services
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent"
-              >
-                Pricing
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent"
-              >
-                Contact
-              </a>
-            </li>
-          </ul>
+            Shop<span className="text-blue-600">Hub</span>
+          </Link>
+
+          {/* Search */}
+          <div className="hidden lg:flex flex-1 max-w-2xl">
+            <div className="relative w-full">
+              <Search
+                size={20}
+                className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"
+              />
+
+              <input
+                type="text"
+                placeholder="Search for products..."
+                className="w-full h-11 rounded-full border border-gray-300 pl-12 pr-4 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
+              />
+            </div>
+          </div>
+
+          {/* Icons */}
+          <div className="flex items-center gap-5">
+            <button className="hidden md:block hover:text-blue-600 transition">
+              <Heart size={23} />
+            </button>
+
+            <button className="relative hover:text-blue-600 transition">
+              <ShoppingCart size={23} />
+
+              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                3
+              </span>
+            </button>
+
+            <button className="hidden md:block hover:text-blue-600 transition">
+              <User size={23} />
+            </button>
+
+            <button className="lg:hidden">
+              <Menu size={25} />
+            </button>
+          </div>
+        </div>
+
+        {/* Navigation */}
+        <div className="hidden lg:flex items-center justify-center gap-10 h-12 border-t">
+          <Link to="/" className="hover:text-blue-600 font-medium">
+            Home
+          </Link>
+
+          <Link to="/shop" className="hover:text-blue-600 font-medium">
+            Shop
+          </Link>
+
+          <Link to="/categories" className="hover:text-blue-600 font-medium">
+            Categories
+          </Link>
+
+          <Link to="/new-arrivals" className="hover:text-blue-600 font-medium">
+            New Arrivals
+          </Link>
+
+          <Link
+            to="/deals"
+            className="hover:text-blue-600 font-medium text-red-500"
+          >
+            Hot Deals
+          </Link>
+
+          <Link to="/contact" className="hover:text-blue-600 font-medium">
+            Contact
+          </Link>
         </div>
       </div>
-    </nav>
+    </header>
   );
 }
